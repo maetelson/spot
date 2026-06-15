@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* =====================================================================
+   spot. design tokens — PRD v2.1 §6 Color System / §7 Type / §8 Spacing
+   Primitives + spot-specific aliases. Use as utilities e.g.
+   bg-canvas, text-ink, text-coral, bg-open-surface, rounded-xl …
+   ===================================================================== */
+@theme {
+  /* --- Greyscale (§6.2) --- */
+  --color-grey-50: #fbfafb;
+  --color-grey-100: #f2f1f4;
+  --color-grey-200: #eae8ee;
+  --color-grey-300: #d0cdd8;
+  --color-grey-400: #9a95a4;
+  --color-grey-500: #6b6675;
+  --color-grey-600: #4a4556;
+  --color-grey-900: #23202a;
+
+  /* --- Primary / Coral (§6.3) --- */
+  --color-coral-50: #fff3f1;
+  --color-coral-100: #ffe9e4;
+  --color-coral-200: #ffcdc4;
+  --color-coral-300: #ffa99f;
+  --color-coral-400: #ff6b5e;
+  --color-coral-600: #d94f43;
+  --color-coral-800: #a83428;
+
+  /* --- Status (§6.4) --- */
+  --color-open: #0e9e6a;
+  --color-open-surface: #dff6ec;
+  --color-closed: #9a95a4;
+  --color-closed-surface: #f1f0f3;
+  --color-closed-accent: #d06b5f;
+
+  /* --- Semantic spot aliases (§6.6) --- */
+  --color-canvas: #fbfafb;
+  --color-fill: #f2f1f4;
+  --color-ink: #23202a;
+  --color-ink-secondary: #6b6675;
+  --color-ink-tertiary: #9a95a4;
+  --color-coral: #ff6b5e;
+  --color-coral-surface: #ffe9e4;
+
+  /* --- Map (§6.5) --- */
+  --color-map-river: #cfe3f2;
+  --color-map-bg-start: #f4f3f6;
+  --color-map-bg-end: #fbeeec;
+
+  /* --- Radius scale (§8) --- */
+  --radius-sm: 9px;
+  --radius-md: 13px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-phone: 40px;
+
+  /* --- Font (§7) --- */
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', sans-serif;
+}
+
+/* =====================================================================
+   shadcn/ui semantic variables, mapped onto the spot palette so any
+   `npx shadcn add <component>` inherits the coral theme automatically.
+   ===================================================================== */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 16px;
+
+  --background: #fbfafb;
+  --foreground: #23202a;
+  --card: #ffffff;
+  --card-foreground: #23202a;
+  --popover: #ffffff;
+  --popover-foreground: #23202a;
+  --primary: #ff6b5e;
+  --primary-foreground: #ffffff;
+  --secondary: #f2f1f4;
+  --secondary-foreground: #23202a;
+  --muted: #f2f1f4;
+  --muted-foreground: #6b6675;
+  --accent: #ffe9e4;
+  --accent-foreground: #a83428;
+  --destructive: #d94f43;
+  --destructive-foreground: #ffffff;
+  --border: #eae8ee;
+  --input: #eae8ee;
+  --ring: #ff6b5e;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+}

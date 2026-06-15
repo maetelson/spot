@@ -1,0 +1,13 @@
+{
+  "name": "@spot/be",
+  "version": "1.0.0",
+  "private": true,
+  "description": "spot. backend — Supabase (schema, migrations, edge functions)",
+  "scripts": {
+    "link": "npx supabase link",
+    "db:push": "npx supabase db push",
+    "db:diff": "npx supabase db diff -f",
+    "functions:serve": "npx supabase functions serve",
+    "functions:deploy": "npx supabase functions deploy"
+  }
+}
